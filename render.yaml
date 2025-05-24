@@ -17,12 +17,15 @@ services:
       - key: MINIO_SERVER_URL
         value: https://oss-ziso.onrender.com
         sync: false
+      - key: MINIO_BROWSER
+        value: "on"
+        sync: false
     disk:
       name: minio-data
       mountPath: /data
       sizeGB: 10
     ports:
-      - port: 9000
+      - port: 38283
         name: http
     healthCheckPath: /minio/health/live
-    httpPort: 9000 
+    httpPort: 38283 
