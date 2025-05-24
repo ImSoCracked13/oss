@@ -15,6 +15,4 @@ services:
       name: minio-data
       mountPath: /data
       sizeGB: 10
-    healthCheckCommand: /healthcheck.sh
-    healthCheckPath: /minio/health/live
     httpPort: 9000 
