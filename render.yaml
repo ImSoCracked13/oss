@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: minio
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: standard
+    envVars:
+      - key: MINIO_ROOT_USER
+        sync: false
+      - key: MINIO_ROOT_PASSWORD
+        sync: false
+    disk:
+      name: minio-data
+      mountPath: /data
+      sizeGB: 10
+    ports:
+      - port: 9000
+        name: api
+      - port: 9001
+        name: console 
