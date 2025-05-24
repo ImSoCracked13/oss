@@ -11,21 +11,8 @@ services:
       - key: MINIO_ROOT_PASSWORD
         value: R1ghtmywrong@
         sync: false
-      - key: MINIO_BROWSER_REDIRECT_URL
-        value: https://oss-ziso.onrender.com/minio
-        sync: false
-      - key: MINIO_SERVER_URL
-        value: https://oss-ziso.onrender.com
-        sync: false
-      - key: MINIO_BROWSER
-        value: "on"
-        sync: false
     disk:
       name: minio-data
       mountPath: /data
       sizeGB: 10
-    ports:
-      - port: 9000
-        name: api
-    healthCheckPath: /minio/health/live
-    httpPort: 9000 
+    healthCheckPath: /minio/health/live 

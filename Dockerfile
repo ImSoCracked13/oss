@@ -3,9 +3,9 @@ FROM quay.io/minio/minio:latest
 # Create data directory
 RUN mkdir -p /data
 
-# Expose the port that Render has assigned
-EXPOSE 38283
+# Expose port 9000
+EXPOSE 9000
 
-# Start MinIO server with separate internal ports
+# Start MinIO server
 ENTRYPOINT ["minio"]
-CMD ["server", "/data", "--address", ":9000", "--console-address", ":9001"] 
+CMD ["server", "/data", "--console-address", ":9001"] 
