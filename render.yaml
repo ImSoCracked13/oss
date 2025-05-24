@@ -6,8 +6,10 @@ services:
     plan: standard
     envVars:
       - key: MINIO_ROOT_USER
+        value: admin
         sync: false
       - key: MINIO_ROOT_PASSWORD
+        value: R1ghtmywrong@
         sync: false
     disk:
       name: minio-data
@@ -16,7 +18,5 @@ services:
     ports:
       - port: 9000
         name: api
-      - port: 9001
-        name: console
     healthCheckPath: /minio/health/live
     httpPort: 9000 

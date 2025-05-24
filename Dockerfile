@@ -3,10 +3,9 @@ FROM quay.io/minio/minio:latest
 # Create data directory
 RUN mkdir -p /data
 
-# Expose the API and Console ports
+# Expose the API port (console will also be on this port with the updated config)
 EXPOSE 9000
-EXPOSE 9001
 
-# Start MinIO server
+# Start MinIO server with console on the same port as API
 ENTRYPOINT ["minio"]
-CMD ["server", "/data", "--console-address", ":9001"] 
+CMD ["server", "/data", "--console-address", ":9000"] 
